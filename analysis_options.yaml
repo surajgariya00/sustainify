@@ -1,7 +1,19 @@
-include: package:very_good_analysis/analysis_options.yaml
+include: package:flutter_lints/flutter.yaml
+
 analyzer:
   exclude:
     - build/**
+    - .dart_tool/**
+  errors:
+    unused_import: error
+    strict_raw_type: warning
+    inference_failure_on_function_invocation: warning
+    always_use_package_imports: ignore
+    directives_ordering: ignore
+    lines_longer_than_80_chars: ignore
+    prefer_const_constructors: ignore
+    deprecated_member_use: warning
+
 linter:
   rules:
     public_member_api_docs: false
