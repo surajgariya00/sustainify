@@ -1,0 +1,1 @@
+ /Users/macbook/sustainify/.dart_tool/flutter_build/5357d9e71ea5f4f9199d4599448e86ac/dart_build_result.json: 

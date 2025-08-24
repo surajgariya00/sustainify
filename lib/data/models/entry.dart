@@ -5,7 +5,7 @@ class Entry {
   final EntryType type;
   final DateTime timestamp;
   final double amount; // meaning depends on type
-  final String label; // e.g. car_petrol, electricity_grid, beef
+  final String label; // e.g. car_petrol, electricity_grid, fish
   final double kgCO2e; // cached
 
   Entry({

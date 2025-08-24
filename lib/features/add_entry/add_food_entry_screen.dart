@@ -14,7 +14,7 @@ class AddFoodEntryScreen extends StatefulWidget {
 class _AddFoodEntryScreenState extends State<AddFoodEntryScreen> {
   final _form = GlobalKey<FormState>();
   final _amountCtrl = TextEditingController();
-  String _label = 'beef';
+  String _label = 'fish';
   final _calc = CarbonCalculator();
   final _repo = Repository();
 
@@ -37,7 +37,7 @@ class _AddFoodEntryScreenState extends State<AddFoodEntryScreen> {
               DropdownButtonFormField<String>(
                 value: _label,
                 items: const [
-                  DropdownMenuItem(value: 'beef', child: Text('Beef (kg)')),
+                  DropdownMenuItem(value: 'fish', child: Text('Fish (kg)')),
                   DropdownMenuItem(
                     value: 'chicken',
                     child: Text('Chicken (kg)'),

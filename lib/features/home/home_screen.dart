@@ -70,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           // Content
           ListView(
-            padding: const EdgeInsets.fromLTRB(16, 100, 16, 16),
+            padding: const EdgeInsets.fromLTRB(16, 120, 16, 16),
             children: [
               // Hero card
               GlassCard(
@@ -259,37 +259,42 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _fab(BuildContext context) {
-    return PopupMenuButton<String>(
-      onSelected: (v) {
-        if (v == 'transport') context.push('/add/transport');
-        if (v == 'energy') context.push('/add/energy');
-        if (v == 'food') context.push('/add/food');
+    return FloatingActionButton.extended(
+      onPressed: () async {
+        final value = await showMenu<String>(
+          context: context,
+          position: const RelativeRect.fromLTRB(200, 500, 20, 100),
+          items: const [
+            PopupMenuItem(
+              value: 'transport',
+              child: ListTile(
+                leading: Icon(Icons.directions_car),
+                title: Text('Add transport'),
+              ),
+            ),
+            PopupMenuItem(
+              value: 'energy',
+              child: ListTile(
+                leading: Icon(Icons.bolt),
+                title: Text('Add energy'),
+              ),
+            ),
+            PopupMenuItem(
+              value: 'food',
+              child: ListTile(
+                leading: Icon(Icons.restaurant),
+                title: Text('Add food'),
+              ),
+            ),
+          ],
+        );
+
+        if (value == 'transport') context.push('/add/transport');
+        if (value == 'energy') context.push('/add/energy');
+        if (value == 'food') context.push('/add/food');
       },
-      itemBuilder: (_) => const [
-        PopupMenuItem(
-          value: 'transport',
-          child: ListTile(
-            leading: Icon(Icons.directions_car),
-            title: Text('Add transport'),
-          ),
-        ),
-        PopupMenuItem(
-          value: 'energy',
-          child: ListTile(leading: Icon(Icons.bolt), title: Text('Add energy')),
-        ),
-        PopupMenuItem(
-          value: 'food',
-          child: ListTile(
-            leading: Icon(Icons.restaurant),
-            title: Text('Add food'),
-          ),
-        ),
-      ],
-      child: FloatingActionButton.extended(
-        onPressed: () {},
-        icon: const Icon(Icons.add),
-        label: const Text('Add'),
-      ),
+      icon: const Icon(Icons.add),
+      label: const Text('Add'),
     );
   }
 }
